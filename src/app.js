@@ -5,7 +5,7 @@ class IndecisionApp extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      options: []
+      options: props.options
     };
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
@@ -33,11 +33,10 @@ class IndecisionApp extends React.Component {
   }
 
   render () {
-    const title = 'Indecision App';
     const subtitle = 'Put your life into the hands of a computer';
     const template =
       <div>
-        <Header title={title} subtitle={subtitle} />
+        <Header subtitle={subtitle} />
         <Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
         <Options options={this.state.options} handleDeleteOptions={this.handleDeleteOptions} />
         <AddOption handleAddOption={this.handleAddOption} />
@@ -47,15 +46,20 @@ class IndecisionApp extends React.Component {
   }
 }
 
+IndecisionApp.defaultProps = {
+  options: []
+};
+
 const Header = (props) => {
   const template =
     <div>
       <h1>{props.title}</h1>
-      <p>{props.subtitle}</p>
+      {props.subtitle && <h2>{props.subtitle}</h2>}
     </div>
     ;
   return template;
 };
+Header.defaultProps = { title: 'Indecision' };
 
 const Action = (props) => {
   const template =
@@ -121,4 +125,4 @@ class AddOption extends React.Component {
   }
 }
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+ReactDOM.render(<IndecisionApp options={['Do Nothing']} />, document.getElementById('app'));
