@@ -9,12 +9,14 @@
     "serve:dev": "webpack-dev-server"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.2",
     "semistandard": "^13.0.1",
     "webpack-cli": "3.1.0",
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
@@ -24,13 +26,19 @@
     "react-dom": "16.0.0",
     "webpack": "^4.39.1"
   },
-  "eslintConfig": {
+  "semistandard": {
+    "parser": "babel-eslint",
     "parserOptions": {
       "sourceType": "module",
       "ecmaVersion": 6,
       "ecmaFeatures": {
         "jsx": true
       }
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "commonjs": true
     }
   }
 }
