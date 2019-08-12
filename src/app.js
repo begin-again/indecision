@@ -10,9 +10,14 @@ class IndecisionApp extends React.Component {
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
     this.handleAddOption = this.handleAddOption.bind(this);
+    this.handleDeleteOption = this.handleDeleteOption.bind(this);
   }
   handleDeleteOptions () {
-    this.setState(() => { return { options: [] }; });
+    this.setState(() => ({ options: [] }));
+  }
+
+  handleDeleteOption () {
+    console.log('hhandleDeleteOption');
   }
 
   handlePick () {
@@ -24,12 +29,7 @@ class IndecisionApp extends React.Component {
   handleAddOption (option) {
     if (!option) return 'Enter valid value to add';
     if (this.state.options.indexOf(option) > -1) return `this option alread exists`;
-    this.setState((prevState) => {
-      return {
-        // use concat to prevent having to modify prevState
-        options: prevState.options.concat([option])
-      };
-    });
+    this.setState((prevState) => ({ options: prevState.options.concat([option]) }));
   }
 
   render () {
@@ -38,7 +38,11 @@ class IndecisionApp extends React.Component {
       <div>
         <Header subtitle={subtitle} />
         <Action hasOptions={this.state.options.length > 0} handlePick={this.handlePick} />
-        <Options options={this.state.options} handleDeleteOptions={this.handleDeleteOptions} />
+        <Options
+          options={this.state.options}
+          handleDeleteOptions={this.handleDeleteOptions}
+          handleDeleteOption={this.handleDeleteOption}
+        />
         <AddOption handleAddOption={this.handleAddOption} />
       </div>
     ;
@@ -106,9 +110,7 @@ class AddOption extends React.Component {
     event.preventDefault();
     const option = event.target.elements.option.value.trim();
     const error = this.props.handleAddOption(option);
-    this.setState(() => {
-      return { error };
-    });
+    this.setState(() => ({ error }));
   }
 
   render () {
