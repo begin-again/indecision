@@ -47,55 +47,47 @@ class IndecisionApp extends React.Component {
   }
 }
 
-class Header extends React.Component {
-  render () {
-    const template =
-      <div>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.subtitle}</p>
-      </div>
+const Header = (props) => {
+  const template =
+    <div>
+      <h1>{props.title}</h1>
+      <p>{props.subtitle}</p>
+    </div>
     ;
-    return template;
-  }
-}
+  return template;
+};
 
-class Action extends React.Component {
-  render () {
-    const template =
-      <div>
-        <button
-          onClick={this.props.handlePick}
-          disabled={!this.props.hasOptions}>What should I do?</button>
-      </div>
+const Action = (props) => {
+  const template =
+    <div>
+      <button
+        onClick={props.handlePick}
+        disabled={!props.hasOptions}>What should I do?</button>
+    </div>
     ;
-    return template;
-  }
-}
+  return template;
+};
 
-class Options extends React.Component {
-  render () {
-    const template =
-      <div>
-        <button onClick={this.props.handleDeleteOptions}>Remove All</button>
-        <ol>
-          {
-            this.props.options.map((n) => <Option key={n} option={n} />)
-          }
-        </ol>
-      </div>
+const Options = (props) => {
+  const template =
+    <div>
+      <button onClick={props.handleDeleteOptions}>Remove All</button>
+      <ol>
+        {
+          props.options.map((n) => <Option key={n} option={n} />)
+        }
+      </ol>
+    </div>
     ;
-    return template;
-  }
-}
+  return template;
+};
 
-class Option extends React.Component {
-  render () {
-    const template =
-      <li key={this.props.optionKey}>{this.props.option}</li>
+const Option = (props) => {
+  const template =
+    <li key={props.optionKey}>{props.option}</li>
     ;
-    return template;
-  }
-}
+  return template;
+};
 
 class AddOption extends React.Component {
   constructor (props) {
