@@ -16,8 +16,11 @@ class IndecisionApp extends React.Component {
     this.setState(() => ({ options: [] }));
   }
 
-  handleDeleteOption () {
+  handleDeleteOption (optionText) {
     console.log('hhandleDeleteOption');
+    this.setState((prevState) => ({
+      options: prevState.options.filter(option => option !== optionText)
+    }));
   }
 
   handlePick () {
@@ -82,7 +85,13 @@ const Options = (props) => {
       <button onClick={props.handleDeleteOptions}>Remove All</button>
       <ol>
         {
-          props.options.map((n) => <Option key={n} option={n} />)
+          props.options.map((n) => (
+            <Option
+              key={n}
+              option={n}
+              handleDeleteOption={props.handleDeleteOption}
+            />
+          ))
         }
       </ol>
     </div>
@@ -92,7 +101,12 @@ const Options = (props) => {
 
 const Option = (props) => {
   const template =
-    <li key={props.optionKey}>{props.option}</li>
+    <li
+      key={props.optionKey}>{props.option}
+      <button onClick={() => {
+        props.handleDeleteOption(props.option);
+      }}>remove</button>
+    </li>
     ;
   return template;
 };
