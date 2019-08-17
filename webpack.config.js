@@ -32,6 +32,7 @@ module.exports = {
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: join(__dirname, 'public')
+    contentBase: join(__dirname, 'public'),
+    port: 8080
   }
 };
