@@ -24,6 +24,7 @@
     "live-server": "^1.2.1",
     "react": "16.0.0",
     "react-dom": "16.0.0",
+    "react-modal": "^3.9.1",
     "webpack": "^4.39.1"
   },
   "eslintConfig": {
