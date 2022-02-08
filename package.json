@@ -12,7 +12,7 @@
     "babel-eslint": "^10.1.0",
     "semistandard": "^16.0.1",
     "webpack-cli": "4.9.2",
-    "webpack-dev-server": "^4.7.3"
+    "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
     "@babel/core": "^7.17.0",
