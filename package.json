@@ -15,7 +15,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
-    "@babel/core": "^7.17.0",
+    "@babel/core": "^7.17.2",
     "@babel/plugin-proposal-class-properties": "^7.16.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
