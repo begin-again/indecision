@@ -20,7 +20,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "babel-cli": "^6.26.0",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.2.4",
     "css-loader": "^3.2.0",
     "live-server": "^1.2.1",
     "node-sass": "^7.0.1",
